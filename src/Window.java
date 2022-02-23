@@ -16,5 +16,6 @@ public class Window
         frame.add(board, BorderLayout.CENTER);
 
         frame.setVisible(true);
+        new Thread(board).start();
     }
 }
