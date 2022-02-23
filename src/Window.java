@@ -3,16 +3,17 @@ import java.awt.*;
 
 public class Window
 {
-    private Board board = new Board();
 
-    public Window () {
+    public Window (){
         JFrame frame = new JFrame("Bouncers");
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        frame.setPreferredSize(new Dimension(400, 300));
+        frame.setSize(1000, 800);
 
-        frame.pack();
+        frame.setLayout(new BorderLayout());
+        Board board = new Board();
+        frame.add(board, BorderLayout.CENTER);
 
         frame.setVisible(true);
     }

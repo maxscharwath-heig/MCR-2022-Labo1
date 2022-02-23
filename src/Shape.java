@@ -1,6 +1,8 @@
+import javax.swing.*;
+import java.awt.*;
 import java.awt.geom.Point2D;
 
-public class Shape {
+public abstract class Shape extends JComponent {
     private final int size;
     private Point2D position;
 
@@ -10,7 +12,7 @@ public class Shape {
     }
     // private xxx vector;
 
-    public void draw () {
-
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
     }
 }

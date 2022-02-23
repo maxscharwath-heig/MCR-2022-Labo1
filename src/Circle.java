@@ -8,4 +8,8 @@ public class Circle extends Shape {
     public Circle(int size, Point2D position) {
         super(size, position);
     }
+
+    @Override
+    public void paintComponent(Graphics g) {
+    }
 }
