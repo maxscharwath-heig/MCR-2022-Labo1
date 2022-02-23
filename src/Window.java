@@ -15,5 +15,6 @@ public class Window
         frame.pack();
 
         frame.setVisible(true);
+        new Thread(board).start();
     }
 }
