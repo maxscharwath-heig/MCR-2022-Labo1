@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Point2D;
 
-public abstract class Shape extends JComponent {
+public abstract class Shape {
     private final int size;
     private Point2D position;
     private Vector2D velocity;
@@ -17,7 +17,5 @@ public abstract class Shape extends JComponent {
         position.setLocation(position.getX() + velocity.getX(), position.getY() + velocity.getY());
     }
 
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-    }
+    abstract void draw(Graphics g);
 }

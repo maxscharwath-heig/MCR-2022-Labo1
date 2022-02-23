@@ -10,6 +10,8 @@ public class Circle extends Shape {
     }
 
     @Override
-    public void paintComponent(Graphics g) {
+    void draw(Graphics g) {
+        g.setColor(color);
+        g.fillOval(10, 10, 50, 50);
     }
 }

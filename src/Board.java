@@ -1,36 +1,43 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Point2D;
 import java.util.LinkedList;
 
 public class Board extends JPanel implements Runnable  {
     LinkedList<Shape> shapes;
 
     public Board () {
+        setBackground(Color.WHITE);
+
         shapes = new LinkedList<>();
 
-        //for (int i = 0; i < 20; ++i) {
-            shapes.add(new Square(10, new Point2D.Double(100, 100)));
-        //}
+        // int rand = (int)(Math.random() * range) + min;
+        int tmpPos = 100;
 
-
-
-        for (Shape shape : shapes)
-        {
-            add(shape);
-            // shape.paint();
+        for (int i = 0; i < 20; ++i) {
+            shapes.add(new Square((int)(Math.random() * (20 - 10 + 10) + 1), new Point2D.Double(tmpPos, tmpPos)));
+            shapes.add(new Circle((int)(Math.random() * (20 - 10 + 10) + 1), new Point2D.Double(tmpPos, tmpPos)));
+            tmpPos += 50;
         }
-        repaint();
-    }
 
-    public void paintComponent(Graphics g) {
-        g.setColor(Color.WHITE);
-        g.fillRect (0, 0, 1000, 800);
+        System.out.println(shapes.size());
+
+        repaint();
     }
 
     public void update() {
         System.out.println("update");
         for (Shape shape : shapes) {
-            // shape.update();
+            shape.update();
+        }
+    }
+
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        for (Shape shape : shapes)
+        {
+            shape.draw(g);
         }
     }
 

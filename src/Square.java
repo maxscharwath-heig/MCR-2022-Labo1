@@ -9,14 +9,8 @@ public class Square extends Shape {
         super(size, position);
     }
 
-    @Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-
-        Graphics2D g2d = (Graphics2D) g.create();
-        System.out.println("Pain was called on square");
-        g2d.setColor(color);
-        g2d.fillRect (10, 10, 200, 200);
+    public void draw(Graphics g) {
+        g.setColor(color);
+        g.fillRect(10, 10, 50, 50);
     }
-
 }
