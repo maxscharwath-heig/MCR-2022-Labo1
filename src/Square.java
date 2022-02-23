@@ -11,6 +11,6 @@ public class Square extends Shape {
 
     public void draw(Graphics g) {
         g.setColor(color);
-        g.fillRect(10, 10, 50, 50);
+        g.fillRect((int) position.getX(), (int) position.getY(), size, size);
     }
 }

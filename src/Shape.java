@@ -3,9 +3,9 @@ import java.awt.*;
 import java.awt.geom.Point2D;
 
 public abstract class Shape {
-    private final int size;
-    private Point2D position;
-    private Vector2D velocity;
+    protected final int size;
+    protected Point2D position;
+    protected Vector2D velocity;
 
     public Shape(int size, Point2D position) {
         this.size = size;
