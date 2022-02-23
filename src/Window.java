@@ -1,10 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Window
-{
+public class Window {
 
-    public Window (){
+    public Window() {
         JFrame frame = new JFrame("Bouncers");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Board board = new Board();

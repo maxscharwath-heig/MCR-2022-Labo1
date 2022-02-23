@@ -7,16 +7,20 @@ public class Vector2D {
         this.y = y;
     }
 
+    public static Vector2D fromAngleLength(double angle, double length) {
+        return new Vector2D(Math.cos(angle) * length, Math.sin(angle) * length);
+    }
+
     public double getX() {
         return this.x;
     }
 
-    public double getY() {
-        return this.y;
-    }
-
     public void setX(double x) {
         this.x = x;
+    }
+
+    public double getY() {
+        return this.y;
     }
 
     public void setY(double y) {
@@ -76,14 +80,14 @@ public class Vector2D {
         this.y *= l;
     }
 
+    public double getAngle() {
+        return Math.atan2(this.y, this.x);
+    }
+
     public void setAngle(double angle) {
         double l = this.length();
         this.x = Math.cos(angle) * l;
         this.y = Math.sin(angle) * l;
-    }
-
-    public double getAngle() {
-        return Math.atan2(this.y, this.x);
     }
 
     public void normalize() {
@@ -98,9 +102,5 @@ public class Vector2D {
 
     public String toString() {
         return "(" + this.x + ", " + this.y + ")";
-    }
-
-    public static Vector2D fromAngleLength(double angle, double length) {
-        return new Vector2D(Math.cos(angle) * length, Math.sin(angle) * length);
     }
 }

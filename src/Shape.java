@@ -1,20 +1,14 @@
-import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Point2D;
 
 public abstract class Shape {
     protected final int size;
-    protected Point2D position;
-    protected Vector2D velocity;
+    public Vector2D position;
+    public Vector2D velocity;
 
-    public Shape(int size, Point2D position) {
+    public Shape(int size, Vector2D position) {
         this.size = size;
         this.position = position;
-        this.velocity = new Vector2D(Math.random() * 2 - 1, Math.random() * 2 - 1);
-    }
-
-    public void update() {
-        position.setLocation(position.getX() + velocity.getX(), position.getY() + velocity.getY());
+        this.velocity = Vector2D.fromAngleLength(Math.random() * Math.PI * 2, Math.random() * 10 + 0.1);
     }
 
     abstract void draw(Graphics g);
