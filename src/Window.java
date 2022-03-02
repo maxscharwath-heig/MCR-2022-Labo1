@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Window {
+public class Window implements Displayer {
 
     private static Window instance;
 
@@ -23,5 +23,30 @@ public class Window {
             instance = new Window();
         }
         return instance;
+    }
+
+    @Override
+    public int getWidth() {
+        return 0;
+    }
+
+    @Override
+    public int getHeight() {
+        return 0;
+    }
+
+    @Override
+    public Graphics2D getGraphics() {
+        return null;
+    }
+
+    @Override
+    public void repaint() {
+
+    }
+
+    @Override
+    public void setTitle(String title) {
+
     }
 }
