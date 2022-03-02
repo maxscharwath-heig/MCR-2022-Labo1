@@ -9,14 +9,11 @@ public class Window implements Displayer {
     private Window() {
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Board board = new Board();
+
 
         frame.setSize(1000, 800);
 
-        frame.getContentPane().add(board, BorderLayout.CENTER);
-
         frame.setVisible(true);
-        new Thread(board).start();
     }
 
     public static Window getInstance() {
@@ -38,12 +35,12 @@ public class Window implements Displayer {
 
     @Override
     public Graphics2D getGraphics() {
-        return null;
+        return (Graphics2D) frame.getGraphics();
     }
 
     @Override
     public void repaint() {
-
+        frame.repaint();
     }
 
     @Override
