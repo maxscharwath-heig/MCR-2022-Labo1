@@ -20,20 +20,21 @@ public abstract class Shape {
     }
 
     Vector2D collisionOffset(Vector2D bound) {
-        Vector2D offset = new Vector2D(0,0);
-        if(position.getX() < 0) {
+        Vector2D offset = new Vector2D(0, 0);
+        if (position.getX() < 0) {
             offset.setX(position.getX());
         }
-        if(position.getX() + size > bound.getX()) {
+        if (position.getX() + size > bound.getX()) {
             offset.setX(position.getX() + size - bound.getX());
         }
-        if(position.getY() < 0) {
+        if (position.getY() < 0) {
             offset.setY(position.getY());
         }
-        if(position.getY() + size > bound.getY()) {
+        if (position.getY() + size > bound.getY()) {
             offset.setY(position.getY() + size - bound.getY());
         }
         return offset;
     }
+
     abstract void draw(Graphics g);
 }

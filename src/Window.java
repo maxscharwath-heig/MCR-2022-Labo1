@@ -3,7 +3,9 @@ import java.awt.*;
 
 public class Window {
 
-    public Window() {
+    private static Window instance;
+
+    private Window() {
         JFrame frame = new JFrame("Bouncers");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Board board = new Board();
@@ -14,5 +16,12 @@ public class Window {
 
         frame.setVisible(true);
         new Thread(board).start();
+    }
+
+    public static Window getInstance() {
+        if (instance == null) {
+            instance = new Window();
+        }
+        return instance;
     }
 }
