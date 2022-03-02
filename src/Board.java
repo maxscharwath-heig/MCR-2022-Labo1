@@ -13,30 +13,24 @@ public class Board extends JPanel implements Runnable {
         // int rand = (int)(Math.random() * range) + min;
         int min = 5;
         int max = 30;
-        for (int i = 0; i < 100; ++i) {
+        for (int i = 0; i < 1000; ++i) {
             shapes.add(new Square((int) (Math.random() * (max - min)) + min, new Vector2D(Math.random() * getWidth(), Math.random() * getHeight())));
             shapes.add(new Circle((int) (Math.random() * (max - min)) + min, new Vector2D(Math.random() * getWidth(), Math.random() * getHeight())));
         }
     }
 
     public void update() {
+        Vector2D bound = new Vector2D(getWidth(), getHeight());
         for (Shape shape : shapes) {
-            shape.position.add(shape.velocity);
-            if (shape.position.getX() > getWidth()) {
-                shape.velocity.setX(-shape.velocity.getX());
-                shape.position.setX(getWidth());
+            shape.getPosition().add(shape.getVelocity());
+            Vector2D offset = shape.collisionOffset(bound);
+            if(offset.getX() != 0) {
+                shape.getVelocity().setX(-shape.getVelocity().getX());
+                shape.getPosition().setX(shape.getPosition().getX() - offset.getX());
             }
-            if (shape.position.getX() < 0) {
-                shape.velocity.setX(-shape.velocity.getX());
-                shape.position.setX(0);
-            }
-            if (shape.position.getY() > getHeight()) {
-                shape.velocity.setY(-shape.velocity.getY());
-                shape.position.setY(getHeight());
-            }
-            if (shape.position.getY() < 0) {
-                shape.velocity.setY(-shape.velocity.getY());
-                shape.position.setY(0);
+            if(offset.getY() != 0) {
+                shape.getVelocity().setY(-shape.getVelocity().getY());
+                shape.getPosition().setY(shape.getPosition().getY() - offset.getY());
             }
         }
     }
