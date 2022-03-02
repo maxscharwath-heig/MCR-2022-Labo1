@@ -4,6 +4,7 @@ import java.util.LinkedList;
 public class Board implements Runnable {
     LinkedList<Shape> shapes;
     private boolean running = false;
+
     public Board() {
         shapes = new LinkedList<>();
         Window window = Window.getInstance();
@@ -22,11 +23,11 @@ public class Board implements Runnable {
         for (Shape shape : shapes) {
             shape.getPosition().add(shape.getVelocity());
             Vector2D offset = shape.collisionOffset(bound);
-            if(offset.getX() != 0) {
+            if (offset.getX() != 0) {
                 shape.getVelocity().setX(-shape.getVelocity().getX());
                 shape.getPosition().setX(shape.getPosition().getX() - offset.getX());
             }
-            if(offset.getY() != 0) {
+            if (offset.getY() != 0) {
                 shape.getVelocity().setY(-shape.getVelocity().getY());
                 shape.getPosition().setY(shape.getPosition().getY() - offset.getY());
             }
@@ -56,10 +57,8 @@ public class Board implements Runnable {
             while (delta >= 1) {
                 this.update();
 
-                //render
-                Image image = window.frame.createImage(window.getWidth(), window.getHeight());
-                this.render(image.getGraphics());
-                window.getGraphics().drawImage(image, 0, 0, null);
+                this.render(window.getGraphics());
+                window.repaint();
 
                 delta--;
             }
