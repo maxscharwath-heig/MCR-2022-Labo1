@@ -56,10 +56,8 @@ public class Board implements Runnable {
             lastTime = now;
             while (delta >= 1) {
                 this.update();
-
                 this.render(window.getGraphics());
                 window.repaint();
-
                 delta--;
             }
         }

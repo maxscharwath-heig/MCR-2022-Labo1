@@ -11,6 +11,7 @@ public class Window implements Displayer {
     private Window() {
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setMinimumSize(new Dimension(500, 500));
         panel = new JPanel();
         frame.add(panel, BorderLayout.CENTER);
         frame.setSize(1000, 800);
