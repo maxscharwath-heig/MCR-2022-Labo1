@@ -7,13 +7,11 @@ public class Board extends JPanel implements Runnable {
     private boolean running = false;
     public Board() {
         setBackground(Color.WHITE);
-
         shapes = new LinkedList<>();
 
-        // int rand = (int)(Math.random() * range) + min;
         int min = 5;
         int max = 30;
-        for (int i = 0; i < 1000; ++i) {
+        for (int i = 0; i < 100; ++i) {
             shapes.add(new Square((int) (Math.random() * (max - min)) + min, new Vector2D(Math.random() * getWidth(), Math.random() * getHeight())));
             shapes.add(new Circle((int) (Math.random() * (max - min)) + min, new Vector2D(Math.random() * getWidth(), Math.random() * getHeight())));
         }
@@ -59,8 +57,8 @@ public class Board extends JPanel implements Runnable {
             while (delta >= 1) {
                 this.update();
                 delta--;
+                repaint();
             }
-            repaint();
         }
     }
 }

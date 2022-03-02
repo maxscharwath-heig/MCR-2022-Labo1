@@ -4,9 +4,10 @@ import java.awt.*;
 public class Window implements Displayer {
 
     private static Window instance;
+    JFrame frame;
 
     private Window() {
-        JFrame frame = new JFrame("Bouncers");
+        frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Board board = new Board();
 
@@ -27,12 +28,12 @@ public class Window implements Displayer {
 
     @Override
     public int getWidth() {
-        return 0;
+        return frame.getWidth();
     }
 
     @Override
     public int getHeight() {
-        return 0;
+        return frame.getHeight();
     }
 
     @Override
@@ -47,6 +48,6 @@ public class Window implements Displayer {
 
     @Override
     public void setTitle(String title) {
-
+        frame.setTitle(title);
     }
 }
