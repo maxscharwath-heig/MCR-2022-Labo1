@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
 
 public class Window implements Displayer {
 
@@ -50,6 +51,11 @@ public class Window implements Displayer {
     @Override
     public void setTitle(String title) {
         frame.setTitle(title);
+    }
+
+    @Override
+    public void addKeyListener(KeyAdapter ka) {
+        /** @todo: implement this method */
     }
 
     private Image createImage() {
