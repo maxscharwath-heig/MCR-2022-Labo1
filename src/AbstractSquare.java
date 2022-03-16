@@ -1,10 +1,10 @@
 import java.awt.*;
 
-public class Square extends Shape {
+public abstract class AbstractSquare extends AbstractShape {
 
     private static final Color color = Color.YELLOW;
 
-    public Square(int size, Vector2D position) {
+    public AbstractSquare(int size, Vector2D position) {
         super(size, position);
     }
 

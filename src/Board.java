@@ -2,7 +2,7 @@ import java.awt.*;
 import java.util.LinkedList;
 
 public class Board implements Runnable {
-    LinkedList<Shape> shapes;
+    LinkedList<AbstractShape> shapes;
     private boolean running = false;
 
     public Board() {
@@ -12,15 +12,16 @@ public class Board implements Runnable {
         int min = 5;
         int max = 30;
         for (int i = 0; i < 100; ++i) {
-            shapes.add(new Square((int) (Math.random() * (max - min)) + min, new Vector2D(Math.random() * window.getWidth(), Math.random() * window.getHeight())));
-            shapes.add(new Circle((int) (Math.random() * (max - min)) + min, new Vector2D(Math.random() * window.getWidth(), Math.random() * window.getHeight())));
+            //todo broken
+            //shapes.add(new AbstractSquare((int) (Math.random() * (max - min)) + min, new Vector2D(Math.random() * window.getWidth(), Math.random() * window.getHeight())));
+            //shapes.add(new AbstractCircle((int) (Math.random() * (max - min)) + min, new Vector2D(Math.random() * window.getWidth(), Math.random() * window.getHeight())));
         }
     }
 
     public void update() {
         Window window = Window.getInstance();
         Vector2D bound = new Vector2D(window.getWidth(), window.getHeight());
-        for (Shape shape : shapes) {
+        for (AbstractShape shape : shapes) {
             shape.getPosition().add(shape.getVelocity());
             Vector2D offset = shape.collisionOffset(bound);
             if (offset.getX() != 0) {
@@ -35,8 +36,9 @@ public class Board implements Runnable {
     }
 
     public void render(Graphics g) {
-        for (Shape shape : shapes) {
-            shape.draw(g);
+        for (AbstractShape shape : shapes) {
+            //todo broken
+            //shape.draw(g);
         }
     }
 
