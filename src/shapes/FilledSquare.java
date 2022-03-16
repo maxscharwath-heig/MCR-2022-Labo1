@@ -1,3 +1,9 @@
+package shapes;
+
+import shapes.AbstractShape;
+import shapes.AbstractSquare;
+import utility.Vector2D;
+
 import java.awt.*;
 
 public class FilledSquare extends AbstractSquare {

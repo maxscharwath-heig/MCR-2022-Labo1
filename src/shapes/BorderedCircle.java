@@ -1,3 +1,9 @@
+package shapes;
+
+import shapes.AbstractCircle;
+import shapes.AbstractShape;
+import utility.Vector2D;
+
 import java.awt.*;
 
 public class BorderedCircle extends AbstractCircle {

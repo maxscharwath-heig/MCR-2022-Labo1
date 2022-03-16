@@ -1,3 +1,8 @@
+package shapes;
+
+import shapes.AbstractCircle;
+import utility.Vector2D;
+
 import java.awt.*;
 
 public class FilledCircle extends AbstractCircle {

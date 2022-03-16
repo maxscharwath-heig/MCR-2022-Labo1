@@ -1,3 +1,8 @@
+import graphics.Bouncable;
+import graphics.LoopedThread;
+import graphics.Renderer;
+import graphics.Window;
+
 import java.awt.*;
 import java.util.LinkedList;
 
@@ -5,14 +10,14 @@ public class Bouncers {
     private LinkedList<Bouncable> bouncers;
 
     public Bouncers() {
-        Window window = Window.getInstance();
+        graphics.Window window = graphics.Window.getInstance();
         window.setTitle("Bouncers");
         int min = 5;
         int max = 30;
         for (int i = 0; i < 100; ++i) {
             //todo broken
-            //bouncers.add(new AbstractSquare((int) (Math.random() * (max - min)) + min, new Vector2D(Math.random() * window.getWidth(), Math.random() * window.getHeight())));
-            //bouncers.add(new AbstractCircle((int) (Math.random() * (max - min)) + min, new Vector2D(Math.random() * window.getWidth(), Math.random() * window.getHeight())));
+            //bouncers.add(new shapes.AbstractSquare((int) (Math.random() * (max - min)) + min, new utility.Vector2D(Math.random() * window.getWidth(), Math.random() * window.getHeight())));
+            //bouncers.add(new shapes.AbstractCircle((int) (Math.random() * (max - min)) + min, new utility.Vector2D(Math.random() * window.getWidth(), Math.random() * window.getHeight())));
         }
     }
 

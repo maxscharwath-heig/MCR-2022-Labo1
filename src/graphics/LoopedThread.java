@@ -1,7 +1,9 @@
+package graphics;
+
 public abstract class LoopedThread extends Thread {
     private final double fps;
 
-    LoopedThread(int fps) {
+    protected LoopedThread(int fps) {
         super();
         this.fps = fps;
     }

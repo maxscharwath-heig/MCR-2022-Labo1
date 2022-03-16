@@ -1,3 +1,9 @@
+package shapes;
+
+import graphics.Bouncable;
+import graphics.Renderer;
+import utility.Vector2D;
+
 public abstract class AbstractShape implements Bouncable {
     protected final int size;
     protected final Vector2D position;

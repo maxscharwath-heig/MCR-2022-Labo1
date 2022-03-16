@@ -1,3 +1,7 @@
+package shapes;
+
+import utility.Vector2D;
+
 import java.awt.*;
 
 public abstract class AbstractCircle extends AbstractShape {
