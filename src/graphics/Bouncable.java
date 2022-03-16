@@ -1,3 +1,7 @@
+package graphics;
+
+import shapes.AbstractShape;
+
 import java.awt.*;
 
 public interface Bouncable {

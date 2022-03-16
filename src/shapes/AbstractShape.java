@@ -1,3 +1,9 @@
+package shapes;
+
+import graphics.Bouncable;
+import graphics.Renderer;
+import utility.Vector2D;
+
 public abstract class AbstractShape implements Bouncable {
     protected final int size;
     protected final Vector2D position;
@@ -32,5 +38,21 @@ public abstract class AbstractShape implements Bouncable {
             offset.setY(position.getY() + size - bound.getY());
         }
         return offset;
+    }
+
+    @Override
+    public void move() {
+        // TODO
+    }
+
+    @Override
+    public Renderer getRenderer() {
+        // TODO
+        return null;
+    }
+
+    @Override
+    public AbstractShape getShape() {
+        return null;
     }
 }
