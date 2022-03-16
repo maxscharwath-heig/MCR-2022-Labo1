@@ -55,7 +55,7 @@ public class Window implements Displayer {
 
     @Override
     public void addKeyListener(KeyAdapter ka) {
-        /** @todo: implement this method */
+        frame.addKeyListener(ka);
     }
 
     private Image createImage() {

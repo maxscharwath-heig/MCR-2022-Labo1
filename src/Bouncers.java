@@ -1,8 +1,10 @@
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 
 public class Bouncers {
-    private LinkedList<Bouncable> bouncers;
+    private LinkedList<Bouncable> bouncers = new LinkedList<>();
 
     public Bouncers() {
         Window window = Window.getInstance();
@@ -14,6 +16,15 @@ public class Bouncers {
             //bouncers.add(new AbstractSquare((int) (Math.random() * (max - min)) + min, new Vector2D(Math.random() * window.getWidth(), Math.random() * window.getHeight())));
             //bouncers.add(new AbstractCircle((int) (Math.random() * (max - min)) + min, new Vector2D(Math.random() * window.getWidth(), Math.random() * window.getHeight())));
         }
+        window.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    System.out.println("Hasta la vista, baby!");
+                    System.exit(0);
+                }
+            }
+        });
     }
 
     public static void main(String... args) {
