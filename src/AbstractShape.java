@@ -33,4 +33,20 @@ public abstract class AbstractShape implements Bouncable {
         }
         return offset;
     }
+
+    @Override
+    public void move() {
+        // TODO
+    }
+
+    @Override
+    public Renderer getRenderer() {
+        // TODO
+        return null;
+    }
+
+    @Override
+    public AbstractShape getShape() {
+        return null;
+    }
 }
