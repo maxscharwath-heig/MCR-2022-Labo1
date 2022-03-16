@@ -1,5 +1,5 @@
 import java.awt.*;
 
-public interface Renderable {
+public interface Renderer {
     void display(Graphics2D g, Bouncable b);
 }

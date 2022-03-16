@@ -1,11 +1,9 @@
-import java.awt.*;
-
 public abstract class AbstractShape implements Bouncable {
     protected final int size;
     protected final Vector2D position;
     protected final Vector2D velocity;
 
-    public AbstractShape(int size, Vector2D position){
+    public AbstractShape(int size, Vector2D position) {
         this.size = size;
         this.position = position;
         this.velocity = Vector2D.fromAngleLength(Math.random() * Math.PI * 2, Math.random() * 10 + 0.1);

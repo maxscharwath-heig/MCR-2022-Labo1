@@ -2,8 +2,12 @@ import java.awt.*;
 
 public interface Bouncable {
     void draw();
+
     void move();
-    Renderable getRenderer();
+
+    Renderer getRenderer();
+
     Color getColor();
+
     AbstractShape getShape();
 }
