@@ -1,3 +1,6 @@
+import factories.AbstractShapeFactory;
+import factories.BorderedFactory;
+import factories.FilledFactory;
 import graphics.Bouncable;
 import graphics.LoopedThread;
 import graphics.Renderer;
@@ -9,27 +12,42 @@ import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 
 public class Bouncers {
-    private LinkedList<Bouncable> bouncers = new LinkedList<>();
+    private final LinkedList<Bouncable> bouncers = new LinkedList<>();
 
     public Bouncers() {
         graphics.Window window = graphics.Window.getInstance();
         window.setTitle("Bouncers");
-        int min = 5;
-        int max = 30;
-        for (int i = 0; i < 100; ++i) {
-            //todo broken
-            //bouncers.add(new shapes.AbstractSquare((int) (Math.random() * (max - min)) + min, new utility.Vector2D(Math.random() * window.getWidth(), Math.random() * window.getHeight())));
-            //bouncers.add(new shapes.AbstractCircle((int) (Math.random() * (max - min)) + min, new utility.Vector2D(Math.random() * window.getWidth(), Math.random() * window.getHeight())));
-        }
         window.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    System.out.println("Hasta la vista, baby!");
-                    System.exit(0);
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_Q:
+                        System.out.println("Hasta la vista, baby!");
+                        System.exit(0);
+                        break;
+                    case KeyEvent.VK_E:
+                        bouncers.clear();
+                        break;
+                    case KeyEvent.VK_B:
+                        addBouncers(new BorderedFactory(), 10);
+                        break;
+                    case KeyEvent.VK_F:
+                        addBouncers(new FilledFactory(), 10);
+                        break;
                 }
             }
         });
+        addBouncers(new FilledFactory(), 15);
+    }
+
+    private void addBouncers(AbstractShapeFactory factory, int count) {
+        int min = 5;
+        int max = 30;
+        var window = Window.getInstance();
+        for (int i = 0; i < count; ++i) {
+            bouncers.add(factory.createCircle((int) (Math.random() * (max - min)) + min,new utility.Vector2D(Math.random() * window.getWidth(), Math.random() * window.getHeight())));
+            bouncers.add(factory.createSquare((int) (Math.random() * (max - min)) + min,new utility.Vector2D(Math.random() * window.getWidth(), Math.random() * window.getHeight())));
+        }
     }
 
     public static void main(String... args) {
@@ -56,7 +74,6 @@ public class Bouncers {
 
         @Override
         public void display(Graphics2D g, Bouncable b) {
-
         }
     }
 

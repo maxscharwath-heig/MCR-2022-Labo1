@@ -46,12 +46,6 @@ public abstract class AbstractShape implements Bouncable {
     }
 
     @Override
-    public Renderer getRenderer() {
-        // TODO
-        return null;
-    }
-
-    @Override
     public AbstractShape getShape() {
         return null;
     }

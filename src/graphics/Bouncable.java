@@ -9,8 +9,6 @@ public interface Bouncable {
 
     void move();
 
-    Renderer getRenderer();
-
     Color getColor();
 
     AbstractShape getShape();
