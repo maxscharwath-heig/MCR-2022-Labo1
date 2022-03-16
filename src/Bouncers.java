@@ -9,6 +9,8 @@ import graphics.Window;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.geom.Point2D;
+import java.util.ConcurrentModificationException;
 import java.util.LinkedList;
 
 public class Bouncers {
@@ -40,22 +42,22 @@ public class Bouncers {
         addBouncers(new FilledFactory(), 15);
     }
 
+    public static void main(String... args) {
+        new Bouncers().run();
+    }
+
     private void addBouncers(AbstractShapeFactory factory, int count) {
         int min = 5;
         int max = 30;
         var window = Window.getInstance();
         for (int i = 0; i < count; ++i) {
-            bouncers.add(factory.createCircle((int) (Math.random() * (max - min)) + min,new utility.Vector2D(Math.random() * window.getWidth(), Math.random() * window.getHeight())));
-            bouncers.add(factory.createSquare((int) (Math.random() * (max - min)) + min,new utility.Vector2D(Math.random() * window.getWidth(), Math.random() * window.getHeight())));
+            bouncers.add(factory.createCircle((int) (Math.random() * (max - min)) + min, new Point2D.Double((Math.random() * window.getWidth()), (Math.random() * window.getHeight()))));
+            bouncers.add(factory.createSquare((int) (Math.random() * (max - min)) + min, new Point2D.Double((Math.random() * window.getWidth()), (Math.random() * window.getHeight()))));
         }
     }
 
-    public static void main(String... args) {
-        new Bouncers().run();
-    }
-
     public void run() {
-        new RenderThread(140).start();
+        new RenderThread(60).start();
         new UpdateThread(60).start();
     }
 
@@ -67,13 +69,22 @@ public class Bouncers {
         @Override
         protected void update() {
             var g = Window.getInstance().getGraphics();
-            for (Bouncable bouncer : bouncers) {
-                this.display(g, bouncer);
+            var it = bouncers.iterator();
+            while (it.hasNext()) {
+                try {
+                    var b = it.next();
+                    display(g, b);
+                } catch (ConcurrentModificationException e) {
+                    //Avoid ConcurrentModificationException
+                    return;
+                }
             }
+            Window.getInstance().repaint();
         }
 
         @Override
         public void display(Graphics2D g, Bouncable b) {
+            b.draw();
         }
     }
 
@@ -84,8 +95,15 @@ public class Bouncers {
 
         @Override
         protected void update() {
-            for (Bouncable shape : bouncers) {
-                shape.move();
+            var it = bouncers.iterator();
+            while (it.hasNext()) {
+                try {
+                    var b = it.next();
+                    b.move();
+                } catch (ConcurrentModificationException e) {
+                    //Avoid ConcurrentModificationException
+                    return;
+                }
             }
         }
     }

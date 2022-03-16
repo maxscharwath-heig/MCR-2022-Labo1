@@ -1,52 +1,24 @@
 package shapes;
 
 import graphics.Bouncable;
-import graphics.Renderer;
-import utility.Vector2D;
+
+import java.awt.*;
+import java.awt.geom.Point2D;
 
 public abstract class AbstractShape implements Bouncable {
-    protected final int size;
-    protected final Vector2D position;
-    protected final Vector2D velocity;
+    protected final Point2D.Double velocity;
+    private final Shape shape;
 
-    public AbstractShape(int size, Vector2D position) {
-        this.size = size;
-        this.position = position;
-        this.velocity = Vector2D.fromAngleLength(Math.random() * Math.PI * 2, Math.random() * 10 + 0.1);
-    }
+    public AbstractShape(Shape shape) {
+        this.shape = shape;
+        double angle = Math.random() * 2 * Math.PI;
+        double length = Math.random() * 10 + 0.1;
+        this.velocity = new Point2D.Double((Math.cos(angle) * length), (Math.sin(angle) * length));
 
-    public Vector2D getPosition() {
-        return position;
-    }
-
-    public Vector2D getVelocity() {
-        return velocity;
-    }
-
-    Vector2D collisionOffset(Vector2D bound) {
-        Vector2D offset = new Vector2D(0, 0);
-        if (position.getX() < 0) {
-            offset.setX(position.getX());
-        }
-        if (position.getX() + size > bound.getX()) {
-            offset.setX(position.getX() + size - bound.getX());
-        }
-        if (position.getY() < 0) {
-            offset.setY(position.getY());
-        }
-        if (position.getY() + size > bound.getY()) {
-            offset.setY(position.getY() + size - bound.getY());
-        }
-        return offset;
     }
 
     @Override
-    public void move() {
-        // TODO
-    }
-
-    @Override
-    public AbstractShape getShape() {
-        return null;
+    public Shape getShape() {
+        return shape;
     }
 }

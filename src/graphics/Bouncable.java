@@ -1,7 +1,5 @@
 package graphics;
 
-import shapes.AbstractShape;
-
 import java.awt.*;
 
 public interface Bouncable {
@@ -11,5 +9,5 @@ public interface Bouncable {
 
     Color getColor();
 
-    AbstractShape getShape();
+    Shape getShape();
 }

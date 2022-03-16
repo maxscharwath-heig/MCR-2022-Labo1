@@ -1,14 +1,13 @@
 package shapes;
 
-import shapes.AbstractShape;
-import shapes.AbstractSquare;
-import utility.Vector2D;
+import graphics.Window;
 
 import java.awt.*;
+import java.awt.geom.Point2D;
 
 public class BorderedSquare extends AbstractSquare {
 
-    public BorderedSquare(int size, Vector2D position) {
+    public BorderedSquare(int size, Point2D.Double position) {
         super(size, position);
     }
 
@@ -18,7 +17,10 @@ public class BorderedSquare extends AbstractSquare {
     }
 
     @Override
-    public AbstractShape getShape() {
-        return null;
+    public void draw() {
+        var g = Window.getInstance().getGraphics();
+        g.setColor(getColor());
+        var shape = getShape().getBounds();
+        g.drawRect(shape.x, shape.y, shape.width, shape.height);
     }
 }
