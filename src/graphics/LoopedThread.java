@@ -11,7 +11,7 @@ public abstract class LoopedThread extends Thread {
     @Override
     public void run() {
         super.run();
-        final double delay = 1000000000.0 / fps; // 60 fps
+        final double delay = 1000000000.0 / fps;
         long lastTime = System.nanoTime();
         double delta = 0;
         while (this.isAlive()) {

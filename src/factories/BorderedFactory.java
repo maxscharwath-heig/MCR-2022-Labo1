@@ -7,6 +7,9 @@ import shapes.BorderedSquare;
 
 import java.awt.geom.Point2D;
 
+/**
+ * Factory for bordered shapes creation
+ */
 public class BorderedFactory extends AbstractShapeFactory {
     @Override
     public AbstractCircle createCircle(int size, Point2D.Double position) {

@@ -4,9 +4,11 @@ import shapes.AbstractCircle;
 import shapes.AbstractSquare;
 import shapes.FilledCircle;
 import shapes.FilledSquare;
-
 import java.awt.geom.Point2D;
 
+/**
+ * Factory for filled shapes creation
+ */
 public class FilledFactory extends AbstractShapeFactory {
     @Override
     public AbstractCircle createCircle(int size, Point2D.Double position) {
