@@ -10,11 +10,10 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.geom.Point2D;
-import java.util.ConcurrentModificationException;
-import java.util.LinkedList;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class Bouncers {
-    private final LinkedList<Bouncable> bouncers = new LinkedList<>();
+    private final LinkedBlockingQueue<Bouncable> bouncers = new LinkedBlockingQueue<>();
 
     public Bouncers() {
         Window window = Window.getInstance();
@@ -68,15 +67,8 @@ public class Bouncers {
         @Override
         protected void update() {
             var g = Window.getInstance().getGraphics();
-            var it = bouncers.iterator();
-            while (it.hasNext()) {
-                try {
-                    var b = it.next();
-                    display(g, b);
-                } catch (ConcurrentModificationException e) {
-                    //Avoid ConcurrentModificationException
-                    return;
-                }
+            for (Bouncable b : bouncers) {
+                display(g, b);
             }
             Window.getInstance().repaint();
         }
@@ -94,15 +86,8 @@ public class Bouncers {
 
         @Override
         protected void update() {
-            var it = bouncers.iterator();
-            while (it.hasNext()) {
-                try {
-                    var b = it.next();
-                    b.move();
-                } catch (ConcurrentModificationException e) {
-                    //Avoid ConcurrentModificationException
-                    return;
-                }
+            for (Bouncable b : bouncers) {
+                b.move();
             }
         }
     }
