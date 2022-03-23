@@ -12,6 +12,11 @@ import java.awt.event.KeyAdapter;
  */
 public class Window implements Displayer {
 
+    private final static int MIN_WIDTH = 500;
+    private final static int MIN_HEIGHT = 500;
+    private final static int INIT_WIDTH = 1000;
+    private final static int INIT_HEIGHT = 800;
+
     private static Window instance;
     public final JFrame frame;
     private final JPanel panel;
@@ -20,10 +25,10 @@ public class Window implements Displayer {
     private Window() {
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setMinimumSize(new Dimension(500, 500));
+        frame.setMinimumSize(new Dimension(MIN_WIDTH, MIN_HEIGHT));
         panel = new JPanel();
         frame.add(panel, BorderLayout.CENTER);
-        frame.setSize(1000, 800);
+        frame.setSize(INIT_WIDTH, INIT_HEIGHT);
         frame.setVisible(true);
         image = createImage();
     }

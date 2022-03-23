@@ -11,6 +11,15 @@ import java.awt.geom.Point2D;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class Bouncers {
+
+    private final int EXIT_KEY_CODE = KeyEvent.VK_Q;
+    private final int CLEAR_KEY_CODE = KeyEvent.VK_E;
+    private final int ADD_FILL_KEY_CODE = KeyEvent.VK_F;
+    private final int ADD_BORDER_KEY_CODE = KeyEvent.VK_B;
+    private final int NUM_TO_ADD = 10;
+    private final int MIN_SHAPE_DIAMETER = 5;
+    private final int MAX_SHAPE_DIAMETER = 30;
+
     private final LinkedBlockingQueue<Bouncable> bouncers = new LinkedBlockingQueue<>();
 
     public Bouncers() {
@@ -20,22 +29,21 @@ public class Bouncers {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
-                    case KeyEvent.VK_Q:
+                    case EXIT_KEY_CODE:
                         System.exit(0);
                         break;
-                    case KeyEvent.VK_E:
+                    case CLEAR_KEY_CODE:
                         bouncers.clear();
                         break;
-                    case KeyEvent.VK_B:
-                        addBouncers(new BorderedFactory(), 10);
+                    case ADD_BORDER_KEY_CODE:
+                        addBouncers(new BorderedFactory(), NUM_TO_ADD);
                         break;
-                    case KeyEvent.VK_F:
-                        addBouncers(new FilledFactory(), 10);
+                    case ADD_FILL_KEY_CODE:
+                        addBouncers(new FilledFactory(), NUM_TO_ADD);
                         break;
                 }
             }
         });
-        addBouncers(new FilledFactory(), 15);
     }
 
     public static void main(String... args) {
@@ -43,18 +51,23 @@ public class Bouncers {
     }
 
     private void addBouncers(AbstractShapeFactory factory, int count) {
-        int min = 5;
-        int max = 30;
         var window = Window.getInstance();
         for (int i = 0; i < count; ++i) {
-            bouncers.add(factory.createCircle((int) (Math.random() * (max - min)) + min, new Point2D.Double((Math.random() * window.getWidth()), (Math.random() * window.getHeight()))));
-            bouncers.add(factory.createSquare((int) (Math.random() * (max - min)) + min, new Point2D.Double((Math.random() * window.getWidth()), (Math.random() * window.getHeight()))));
+            bouncers.add(factory.createCircle(
+                    (int) (Math.random() * (MAX_SHAPE_DIAMETER - MIN_SHAPE_DIAMETER)) + MIN_SHAPE_DIAMETER,
+                    new Point2D.Double((Math.random() * window.getWidth()), (Math.random() * window.getHeight())))
+            );
+
+            bouncers.add(factory.createSquare(
+                    (int) (Math.random() * (MAX_SHAPE_DIAMETER - MIN_SHAPE_DIAMETER)) + MIN_SHAPE_DIAMETER,
+                    new Point2D.Double((Math.random() * window.getWidth()), (Math.random() * window.getHeight())))
+            );
         }
     }
 
     public void run() {
-        //RenderThread
-        new LoopedThread(60){
+        // RenderThread
+        new LoopedThread(60) {
             @Override
             protected void update() {
                 for (Bouncable b : bouncers) {
@@ -64,8 +77,8 @@ public class Bouncers {
             }
         }.start();
 
-        //Update Thread
-        new LoopedThread(60){
+        // Update Thread
+        new LoopedThread(60) {
             @Override
             protected void update() {
                 for (Bouncable b : bouncers) {
