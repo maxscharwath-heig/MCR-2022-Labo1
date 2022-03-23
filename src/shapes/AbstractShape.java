@@ -1,5 +1,6 @@
 package shapes;
 
+import graphics.Window;
 import graphics.Bouncable;
 
 import java.awt.*;
@@ -23,7 +24,7 @@ public abstract class AbstractShape implements Bouncable {
     }
 
     protected Rectangle2D checkAndReactToCollision() {
-        graphics.Window window = graphics.Window.getInstance();
+        Window window = Window.getInstance();
         Rectangle2D bounds = this.getShape().getBounds2D();
         bounds.setRect(bounds.getX() + velocity.x, bounds.getY() + velocity.y, bounds.getWidth(), bounds.getHeight());
         Point2D.Double offset = new Point2D.Double();

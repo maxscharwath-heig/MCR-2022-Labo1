@@ -4,6 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 
+/**
+ * The Bouncers application main window
+ *
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ */
 public class Window implements Displayer {
 
     private static Window instance;

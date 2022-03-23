@@ -17,14 +17,13 @@ public class Bouncers {
     private final LinkedList<Bouncable> bouncers = new LinkedList<>();
 
     public Bouncers() {
-        graphics.Window window = graphics.Window.getInstance();
+        Window window = Window.getInstance();
         window.setTitle("Bouncers");
         window.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_Q:
-                        System.out.println("Hasta la vista, baby!");
                         System.exit(0);
                         break;
                     case KeyEvent.VK_E:

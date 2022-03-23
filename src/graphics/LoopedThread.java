@@ -1,5 +1,12 @@
 package graphics;
 
+/**
+ * Custom thread that performs operations at a fixed rate
+ * of frames per second
+ *
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ */
 public abstract class LoopedThread extends Thread {
     private final double fps;
 
