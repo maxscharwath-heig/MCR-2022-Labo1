@@ -59,23 +59,17 @@ public class Bouncers {
         new UpdateThread(60).start();
     }
 
-    private class RenderThread extends LoopedThread implements Renderer {
+    private class RenderThread extends LoopedThread {
         RenderThread(int fps) {
             super(fps);
         }
 
         @Override
         protected void update() {
-            var g = Window.getInstance().getGraphics();
             for (Bouncable b : bouncers) {
-                display(g, b);
+                b.draw();
             }
             Window.getInstance().repaint();
-        }
-
-        @Override
-        public void display(Graphics2D g, Bouncable b) {
-            b.draw();
         }
     }
 
