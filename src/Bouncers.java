@@ -3,10 +3,8 @@ import factories.BorderedFactory;
 import factories.FilledFactory;
 import graphics.Bouncable;
 import graphics.LoopedThread;
-import graphics.Renderer;
 import graphics.Window;
 
-import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.geom.Point2D;
@@ -55,35 +53,25 @@ public class Bouncers {
     }
 
     public void run() {
-        new RenderThread(60).start();
-        new UpdateThread(60).start();
-    }
-
-    private class RenderThread extends LoopedThread {
-        RenderThread(int fps) {
-            super(fps);
-        }
-
-        @Override
-        protected void update() {
-            for (Bouncable b : bouncers) {
-                b.draw();
+        //RenderThread
+        new LoopedThread(60){
+            @Override
+            protected void update() {
+                for (Bouncable b : bouncers) {
+                    b.draw();
+                }
+                Window.getInstance().repaint();
             }
-            Window.getInstance().repaint();
-        }
-    }
+        }.start();
 
-    private class UpdateThread extends LoopedThread {
-        UpdateThread(int fps) {
-            super(fps);
-        }
-
-        @Override
-        protected void update() {
-            for (Bouncable b : bouncers) {
-                b.move();
+        //Update Thread
+        new LoopedThread(60){
+            @Override
+            protected void update() {
+                for (Bouncable b : bouncers) {
+                    b.move();
+                }
             }
-        }
+        }.start();
     }
-
 }
