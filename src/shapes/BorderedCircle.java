@@ -21,12 +21,4 @@ public class BorderedCircle extends AbstractCircle {
     public Color getColor() {
         return Color.GREEN;
     }
-
-    @Override
-    public void draw() {
-        var g = Window.getInstance().getGraphics();
-        g.setColor(getColor());
-        var shape = getShape().getBounds();
-        g.drawOval(shape.x, shape.y, shape.width, shape.height);
-    }
 }

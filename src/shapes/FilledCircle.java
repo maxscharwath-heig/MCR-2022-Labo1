@@ -1,5 +1,6 @@
 package shapes;
 
+import graphics.FilledRenderer;
 import graphics.Window;
 
 import java.awt.*;
@@ -20,13 +21,5 @@ public class FilledCircle extends AbstractCircle {
     @Override
     public Color getColor() {
         return Color.BLUE;
-    }
-
-    @Override
-    public void draw() {
-        var g = Window.getInstance().getGraphics();
-        g.setColor(getColor());
-        var shape = getShape().getBounds();
-        g.fillOval(shape.x, shape.y, shape.width, shape.height);
     }
 }

@@ -4,6 +4,7 @@ import graphics.Window;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
+import java.awt.geom.RectangularShape;
 
 /**
  * A colored bordered square shape
@@ -20,13 +21,5 @@ public class BorderedSquare extends AbstractSquare {
     @Override
     public Color getColor() {
         return Color.RED;
-    }
-
-    @Override
-    public void draw() {
-        var g = Window.getInstance().getGraphics();
-        g.setColor(getColor());
-        var shape = getShape().getBounds();
-        g.drawRect(shape.x, shape.y, shape.width, shape.height);
     }
 }

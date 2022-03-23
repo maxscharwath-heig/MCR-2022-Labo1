@@ -19,6 +19,11 @@ public abstract class AbstractShape implements Bouncable {
     }
 
     @Override
+    public void draw() {
+        renderer.display(Window.getInstance().getGraphics(), this);
+    }
+
+    @Override
     public Shape getShape() {
         return shape;
     }
