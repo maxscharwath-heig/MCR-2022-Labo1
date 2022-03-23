@@ -1,6 +1,6 @@
 package shapes;
 
-import graphics.Window;
+import graphics.Renderer;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -13,8 +13,8 @@ import java.awt.geom.Point2D;
  */
 public class FilledSquare extends AbstractSquare {
 
-    public FilledSquare(int size, Point2D.Double position) {
-        super(size, position);
+    public FilledSquare(int size, Point2D.Double position, Renderer renderer) {
+        super(size, position, renderer);
     }
 
     @Override

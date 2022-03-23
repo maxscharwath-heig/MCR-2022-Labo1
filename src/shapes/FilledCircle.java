@@ -1,7 +1,6 @@
 package shapes;
 
-import graphics.FilledRenderer;
-import graphics.Window;
+import graphics.Renderer;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -14,8 +13,8 @@ import java.awt.geom.Point2D;
  */
 public class FilledCircle extends AbstractCircle {
 
-    public FilledCircle(int size, Point2D.Double position) {
-        super(size, position);
+    public FilledCircle(int size, Point2D.Double position, Renderer renderer) {
+        super(size, position, renderer);
     }
 
     @Override

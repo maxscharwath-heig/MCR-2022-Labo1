@@ -1,10 +1,9 @@
 package shapes;
 
-import graphics.Window;
+import graphics.Renderer;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.awt.geom.RectangularShape;
 
 /**
  * A colored bordered square shape
@@ -14,8 +13,8 @@ import java.awt.geom.RectangularShape;
  */
 public class BorderedSquare extends AbstractSquare {
 
-    public BorderedSquare(int size, Point2D.Double position) {
-        super(size, position);
+    public BorderedSquare(int size, Point2D.Double position, Renderer renderer) {
+        super(size, position, renderer);
     }
 
     @Override

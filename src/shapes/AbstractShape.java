@@ -1,7 +1,8 @@
 package shapes;
 
-import graphics.Window;
 import graphics.Bouncable;
+import graphics.Renderer;
+import graphics.Window;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -10,8 +11,10 @@ import java.awt.geom.Rectangle2D;
 public abstract class AbstractShape implements Bouncable {
     protected final Point2D.Double velocity;
     private final Shape shape;
+    private final Renderer renderer;
 
-    public AbstractShape(Shape shape) {
+    public AbstractShape(Shape shape, Renderer renderer) {
+        this.renderer = renderer;
         this.shape = shape;
         double angle = Math.random() * 2 * Math.PI;
         double length = Math.random() * 10 + 0.1;
