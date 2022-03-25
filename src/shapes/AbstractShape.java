@@ -13,7 +13,7 @@ public abstract class AbstractShape implements Bouncable {
     private final Shape shape;
     private final Renderer renderer;
 
-    public AbstractShape(Shape shape, Renderer renderer) {
+    protected AbstractShape(Shape shape, Renderer renderer) {
         this.renderer = renderer;
         this.shape = shape;
         double angle = Math.random() * 2 * Math.PI;
@@ -54,5 +54,4 @@ public abstract class AbstractShape implements Bouncable {
 
         return bounds;
     }
-
 }

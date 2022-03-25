@@ -9,7 +9,7 @@ import java.awt.geom.Rectangle2D;
 
 public abstract class AbstractCircle extends AbstractShape {
 
-    public AbstractCircle(int size, Point2D.Double position, Renderer renderer) {
+    protected AbstractCircle(int size, Point2D.Double position, Renderer renderer) {
         super(new Ellipse2D.Double(position.x, position.y, size, size), renderer);
     }
 

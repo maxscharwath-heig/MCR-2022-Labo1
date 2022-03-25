@@ -7,7 +7,7 @@ import java.awt.geom.Rectangle2D;
 
 public abstract class AbstractSquare extends AbstractShape {
 
-    public AbstractSquare(int size, Point2D.Double position, Renderer renderer) {
+    protected AbstractSquare(int size, Point2D.Double position, Renderer renderer) {
         super(new Rectangle2D.Double(position.x, position.y, size, size), renderer);
     }
 
