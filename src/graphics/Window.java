@@ -1,7 +1,11 @@
 package graphics;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.Image;
+import java.awt.Dimension;
+import java.awt.BorderLayout;
+import java.awt.Graphics2D;
 import java.awt.event.KeyAdapter;
 
 /**
@@ -18,7 +22,7 @@ public class Window implements Displayer {
     private final static int INIT_HEIGHT = 800;
 
     private static Window instance;
-    public final JFrame frame;
+    private final JFrame frame;
     private final JPanel panel;
     private Image image;
 

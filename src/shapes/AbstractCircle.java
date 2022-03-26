@@ -1,6 +1,5 @@
 package shapes;
 
-
 import graphics.Renderer;
 
 import java.awt.geom.Ellipse2D;

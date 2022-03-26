@@ -12,13 +12,13 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class Bouncers {
 
-    private final int EXIT_KEY_CODE = KeyEvent.VK_Q;
-    private final int CLEAR_KEY_CODE = KeyEvent.VK_E;
-    private final int ADD_FILL_KEY_CODE = KeyEvent.VK_F;
-    private final int ADD_BORDER_KEY_CODE = KeyEvent.VK_B;
-    private final int NUM_TO_ADD = 10;
-    private final int MIN_SHAPE_DIAMETER = 5;
-    private final int MAX_SHAPE_DIAMETER = 30;
+    private final static int EXIT_KEY_CODE = KeyEvent.VK_Q;
+    private final static int CLEAR_KEY_CODE = KeyEvent.VK_E;
+    private final static int ADD_FILL_KEY_CODE = KeyEvent.VK_F;
+    private final static int ADD_BORDER_KEY_CODE = KeyEvent.VK_B;
+    private final static int NUM_TO_ADD = 10;
+    private final static int MIN_SHAPE_DIAMETER = 5;
+    private final static int MAX_SHAPE_DIAMETER = 30;
 
     private final LinkedBlockingQueue<Bouncable> bouncers = new LinkedBlockingQueue<>();
 

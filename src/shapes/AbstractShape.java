@@ -4,12 +4,12 @@ import graphics.Bouncable;
 import graphics.Renderer;
 import graphics.Window;
 
-import java.awt.*;
+import java.awt.Shape;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
 public abstract class AbstractShape implements Bouncable {
-    protected final Point2D.Double velocity;
+    private final Point2D.Double velocity;
     private final Shape shape;
     private final Renderer renderer;
 

@@ -1,6 +1,6 @@
 package graphics;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 
 public class FilledRenderer implements Renderer {
     @Override

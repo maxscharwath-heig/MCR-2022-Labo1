@@ -1,6 +1,7 @@
 package graphics;
 
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.BasicStroke;
 
 public class BorderedRenderer implements Renderer {
     @Override
