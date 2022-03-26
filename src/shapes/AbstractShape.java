@@ -8,6 +8,12 @@ import java.awt.Shape;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
+/**
+ * A bouncing shape
+ *
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ */
 public abstract class AbstractShape implements Bouncable {
     private final Point2D.Double velocity;
     private final Shape shape;

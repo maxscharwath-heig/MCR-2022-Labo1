@@ -11,6 +11,9 @@ import java.awt.geom.Point2D;
 
 /**
  * Factory for bordered shapes creation
+ *
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
  */
 public class BorderedFactory extends AbstractShapeFactory {
     private static final Renderer renderer = new BorderedRenderer();

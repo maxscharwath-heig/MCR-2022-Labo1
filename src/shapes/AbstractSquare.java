@@ -5,6 +5,12 @@ import graphics.Renderer;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
+/**
+ * A bouncing circle square
+ *
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ */
 public abstract class AbstractSquare extends AbstractShape {
 
     protected AbstractSquare(int size, Point2D.Double position, Renderer renderer) {

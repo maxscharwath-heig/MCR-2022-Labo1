@@ -11,6 +11,9 @@ import java.awt.geom.Point2D;
 
 /**
  * Factory for filled shapes creation
+ *
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
  */
 public class FilledFactory extends AbstractShapeFactory {
     private static final Renderer renderer = new FilledRenderer();

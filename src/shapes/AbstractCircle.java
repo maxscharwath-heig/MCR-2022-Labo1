@@ -6,6 +6,12 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
+/**
+ * A bouncing circle shape
+ *
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ */
 public abstract class AbstractCircle extends AbstractShape {
 
     protected AbstractCircle(int size, Point2D.Double position, Renderer renderer) {
