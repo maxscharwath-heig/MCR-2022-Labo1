@@ -37,6 +37,10 @@ public class Window implements Displayer {
         image = createImage();
     }
 
+    /**
+     * Get the singleton instance of window
+     * @return instance of window
+     */
     public static Window getInstance() {
         if (instance == null) {
             instance = new Window();
@@ -75,6 +79,10 @@ public class Window implements Displayer {
         frame.addKeyListener(ka);
     }
 
+    /**
+     * Creates a drawable image that can be displayed in the displayer
+     * @return new image
+     */
     private Image createImage() {
         return frame.createImage(getWidth(), getHeight());
     }

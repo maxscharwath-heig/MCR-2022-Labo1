@@ -10,6 +10,10 @@ package graphics;
 public abstract class LoopedThread extends Thread {
     private final double fps;
 
+    /**
+     * Configure a thread that will loop at fixed rate
+     * @param fps the fixed rate of loop (per second)
+     */
     protected LoopedThread(double fps) {
         super();
         this.fps = fps;
@@ -32,5 +36,8 @@ public abstract class LoopedThread extends Thread {
         }
     }
 
+    /**
+     * Defines the behaviour of the thread
+     */
     abstract protected void update();
 }

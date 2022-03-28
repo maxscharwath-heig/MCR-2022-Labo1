@@ -37,6 +37,10 @@ public abstract class AbstractShape implements Bouncable {
         return shape;
     }
 
+    /**
+     * Check if collision with border of displayer and reacts to it
+     * @return
+     */
     protected Rectangle2D checkAndReactToCollision() {
         Window window = Window.getInstance();
         Rectangle2D bounds = this.getShape().getBounds2D();

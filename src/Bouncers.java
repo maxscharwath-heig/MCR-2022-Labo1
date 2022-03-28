@@ -50,6 +50,11 @@ public class Bouncers {
         new Bouncers().run();
     }
 
+    /**
+     * Add new bouncers to the simulation
+     * @param factory factory to use for shapes creation
+     * @param count number of shapes to create
+     */
     private void addBouncers(AbstractShapeFactory factory, int count) {
         var window = Window.getInstance();
         for (int i = 0; i < count; ++i) {
@@ -65,6 +70,9 @@ public class Bouncers {
         }
     }
 
+    /**
+     * Run two thread, one for moving shapes, one for render.
+     */
     public void run() {
         // RenderThread
         new LoopedThread(60) {
