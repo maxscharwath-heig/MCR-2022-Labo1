@@ -19,8 +19,13 @@ public abstract class AbstractCircle extends AbstractShape {
     }
 
     @Override
+    public Ellipse2D getShape() {
+        return (Ellipse2D) super.getShape();
+    }
+
+    @Override
     public void move() {
         Rectangle2D bounds = checkAndReactToCollision();
-        ((Ellipse2D) this.getShape()).setFrame(bounds);
+        this.getShape().setFrame(bounds);
     }
 }

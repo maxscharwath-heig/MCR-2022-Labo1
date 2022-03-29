@@ -1,11 +1,7 @@
 package graphics;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.Image;
-import java.awt.Dimension;
-import java.awt.BorderLayout;
-import java.awt.Graphics2D;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 
 /**
@@ -66,6 +62,7 @@ public class Window implements Displayer {
     @Override
     public void repaint() {
         panel.getGraphics().drawImage(image, 0, 0, null);
+        //after drawing the buffered image, we create a new one for the next frame.
         image = createImage();
     }
 

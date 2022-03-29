@@ -1,7 +1,6 @@
 package graphics;
 
-import java.awt.Graphics2D;
-import java.awt.BasicStroke;
+import java.awt.*;
 
 /**
  * Renderer for bordered shapes

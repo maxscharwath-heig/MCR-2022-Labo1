@@ -1,7 +1,6 @@
 package graphics;
 
-import java.awt.Color;
-import java.awt.Shape;
+import java.awt.*;
 
 /**
  * Define the behaviour of a bouncing shape

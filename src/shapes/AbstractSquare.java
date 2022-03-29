@@ -18,8 +18,13 @@ public abstract class AbstractSquare extends AbstractShape {
     }
 
     @Override
+    public Rectangle2D.Double getShape() {
+        return (Rectangle2D.Double) super.getShape();
+    }
+
+    @Override
     public void move() {
         Rectangle2D bounds = checkAndReactToCollision();
-        ((Rectangle2D) this.getShape()).setFrame(bounds);
+        this.getShape().setFrame(bounds);
     }
 }

@@ -1,6 +1,6 @@
 package graphics;
 
-import java.awt.Graphics2D;
+import java.awt.*;
 
 /**
  * Renderer for filled shapes

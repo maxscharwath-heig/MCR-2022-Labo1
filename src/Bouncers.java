@@ -20,6 +20,7 @@ public class Bouncers {
     private final static int MIN_SHAPE_DIAMETER = 5;
     private final static int MAX_SHAPE_DIAMETER = 30;
 
+    // LinkedBlockingQueue is thread-safe that is why we don't use LinkedList
     private final LinkedBlockingQueue<Bouncable> bouncers = new LinkedBlockingQueue<>();
 
     public Bouncers() {

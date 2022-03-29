@@ -29,7 +29,7 @@ public abstract class LoopedThread extends Thread {
             long now = System.nanoTime();
             delta += (now - lastTime) / delay;
             lastTime = now;
-            while (delta >= 1) {
+            while (delta >= 1) { 
                 this.update();
                 delta--;
             }

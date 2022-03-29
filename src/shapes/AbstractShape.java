@@ -4,7 +4,7 @@ import graphics.Bouncable;
 import graphics.Renderer;
 import graphics.Window;
 
-import java.awt.Shape;
+import java.awt.*;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
@@ -44,21 +44,25 @@ public abstract class AbstractShape implements Bouncable {
     protected Rectangle2D checkAndReactToCollision() {
         Window window = Window.getInstance();
         Rectangle2D bounds = this.getShape().getBounds2D();
+        // add velocity to bounds
         bounds.setRect(bounds.getX() + velocity.x, bounds.getY() + velocity.y, bounds.getWidth(), bounds.getHeight());
-        Point2D.Double offset = new Point2D.Double();
-        if (bounds.getX() < 0) {
+        Point2D.Double offset = new Point2D.Double(); // how much the shape is off the screen
+        if (bounds.getX() < 0) { // check left border
             offset.x = bounds.getX();
         }
-        if (bounds.getX() + bounds.getWidth() > window.getWidth()) {
+        if (bounds.getX() + bounds.getWidth() > window.getWidth()) { // check right border
             offset.x = bounds.getX() + bounds.getWidth() - window.getWidth();
         }
-        if (bounds.getY() < 0) {
+        if (bounds.getY() < 0) { // check top border
             offset.y = bounds.getY();
         }
-        if (bounds.getY() + bounds.getHeight() > window.getHeight()) {
+        if (bounds.getY() + bounds.getHeight() > window.getHeight()) { // check bottom border
             offset.y = bounds.getY() + bounds.getHeight() - window.getHeight();
         }
+        // if there is an offset, move the shape back
         bounds.setRect(bounds.getX() - offset.x, bounds.getY() - offset.y, bounds.getWidth(), bounds.getHeight());
+
+        // if the shape was off the screen, bounce it back
         if (offset.x != 0) velocity.x *= -1;
         if (offset.y != 0) velocity.y *= -1;
 
